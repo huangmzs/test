@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>page1.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<link rel="stylesheet" href="../../../custom/uimaker/easyui.css" type="text/css"></link>
+		<link rel="stylesheet" href="../../../custom/uimaker/icon.css" type="text/css"></link>
+		<script type="text/javascript" src="../../../custom/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../custom/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../../custom/easyui-lang-zh_CN.js"></script>
+  	<script type="text/javascript" src="../../../js/common.js"></script>
+  
+  </head>
+  
+  <body>
+	<form>
+        <table cellpadding="5">
+	        <tr>
+	            <td>商品类目:</td>
+	            <td>
+	            	<a href="javascript:void(0)" class="easyui-linkbutton selectItemCat">选择类目</a>
+	            	<input type="hidden" name="cid" style="width: 280px;"></input>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>分类标题:</td>
+	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
+	        </tr>
+	   
+	        <tr>
+	            <td>是否父类节点:</td>
+	            <td>
+					<input type="checkbox"></input>
+	            </td>
+	        </tr>
+			<tr>
+	            <td><input type="submit" value="提交"></td>
+	            <td>
+					<input type="reset"  value="重置"></input>
+	            </td>
+	        </tr>
+	    </table>
+    </form>
+		<script>
+			$(function(){
+				//初始化分类点击案件
+				CC.initItemCat({});
+				
+			})
+			
+		</script>
+   
+  </body>
+</html>

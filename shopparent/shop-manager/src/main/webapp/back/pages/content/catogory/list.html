@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>page1.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<link rel="stylesheet" href="../../../custom/uimaker/easyui.css" type="text/css"></link>
+		<link rel="stylesheet" href="../../../custom/uimaker/icon.css" type="text/css"></link>
+		<script type="text/javascript" src="../../../custom/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../custom/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../../custom/easyui-lang-zh_CN.js"></script>
+	</head>
+
+	<body>
+
+		<div id="tb" style="padding:0 30px;">
+			<div class="conditions">
+				<span class="con-span">分类编号: </span><input class="easyui-textbox" type="text" name="code" style="width:166px;height:35px;line-height:35px;"></input>
+				<span class="con-span">分类名称: </span><input class="easyui-textbox" type="text" name="name" style="width:166px;height:35px;line-height:35px;"></input>
+
+			</div>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-search" data-options="selected:true">查询</a>
+		</div>
+		<table id="dg"></table>
+		<script>
+			$(function() {
+				$('#dg').datagrid({
+					method: "GET",
+					title: "商品分类列表",
+					url: 'listpagejson', //获取数据的url
+					fitColumns: true, //列自适应
+					pagination: true, //显示分页
+					columns: //列头的设计
+						[
+							[{
+									field: 'id',
+									title: '分类编号',
+									fit: true,
+									align: 'center'
+								},
+								{
+									field: 'name',
+									title: '名字',
+									width: 80,
+									align: 'center'
+								},
+								{
+									field: 'parent_id',
+									title: '父类容器id',
+									width: 80,
+									align: 'center'
+								},
+								{
+									field: 'type',
+									title: '类型',
+									width: 80,
+									align: 'center'
+								},
+								{
+									field: 'updated',
+									title: '最近更新时间',
+									width: 80,
+									align: 'center'
+								},
+								{
+									field: 'status_str',
+									title: '状态',
+									width: 80,
+									align: 'center'
+								},
+								{
+									field: 'opertion',
+									title: '操作',
+									width: 80,
+									align: 'center'
+								}
+							]
+						],
+					//过滤数据
+					loadFilter: function(data) {
+						data.rows.forEach(function(item) {
+							item.opertion = "<a>编辑</a> <a>删除</a>"
+						});
+						return data;
+					},
+					toolbar: '#tb'
+
+				});
+
+			})
+		</script>
+	</body>
+
+</html>
